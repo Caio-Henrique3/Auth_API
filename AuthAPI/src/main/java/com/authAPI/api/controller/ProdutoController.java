@@ -23,15 +23,15 @@ public class ProdutoController {
 	@Autowired
 	private ProdutoRepository produtoRepository;
 	
-	@GetMapping()
-	private List<Produto> listarProdutos() {
+	@GetMapping
+	public List<Produto> listarProdutos() {
 		return produtoRepository.findAll();
 	}
 	
-	@DeleteMapping
+	@DeleteMapping("/{idProduto}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@RolesAllowed("ROLE_ADMIN")
-	private void deletarProduto(@PathVariable Long idProduto) {
+	public void deletarProduto(@PathVariable Long idProduto) {
 		produtoRepository.deleteById(idProduto);
 	}
 	

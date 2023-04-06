@@ -24,7 +24,7 @@ public class LoginController {
 	private TokenService tokenService;
 	
 	@PostMapping
-	private String login(@RequestBody Login login) {
+	public String login(@RequestBody Login login) {
 		UsernamePasswordAuthenticationToken authenticationToken =
 				new UsernamePasswordAuthenticationToken(login.login(), login.password());
 		
